@@ -10,6 +10,12 @@ const Input = ({addList}) => {
     addList(value)
     inputText.current.value = ""
   };
+  const handleEnterPress = (e) => {
+    if(e.key === "Enter"){
+      e.preventDefault();
+      handleClick();
+    }
+  }
   return (
     <div>
       <h1>Notes App</h1>
@@ -18,6 +24,7 @@ const Input = ({addList}) => {
         id="text-area"
         placeholder="Write your notes here..."
         ref={inputText}
+        onKeyDown={handleEnterPress}
       ></textarea>
       <center>
       <button id="Button" onClick={handleClick}>
